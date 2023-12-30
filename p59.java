@@ -29,12 +29,12 @@ public class p59 {
                     System.out.println();
                     break;
                 case 4:
-                    System.out.print("PreOrder: ");
+                    System.out.print("InOrder: ");
                     a.inOrd();
                     System.out.println();
                     break;
                 case 5:
-                    System.out.print("PreOrder: ");
+                    System.out.print("PostOrder: ");
                     a.postOrd();
                     System.out.println();
                     break;
@@ -68,21 +68,30 @@ class BST{
         }
         else{
             node save=r;
-            node pred=null;
+            // node pred=null;
 
         	while (save!=null) {
-                pred=save;
+                // pred=save;
                 if (n.info>save.info) {
-                    save=save.rptr;
-                    if ( save==null) {
-                        pred.rptr=n;
+                    if(save.rptr ==null) {
+                        save.rptr = n;
+                        return;
                     }
+                    save=save.rptr;
+                    // if ( save==null) {
+                    //     // pred.rptr=n;
+                    // }
                 }
                 else if(n.info<save.info) {
-                    save=save.lptr;
-                    if ( save==null) {
-                        pred.lptr=n;
+                    if(save.lptr == null)
+                    {
+                        save.lptr = n;
+                        return;
                     }
+                    save=save.lptr;
+                    // if ( save==null) {
+                    //     // pred.lptr=n;
+                    // }
                 }
                 else{
                     System.out.println("Value is already exist!!!!!");
@@ -103,7 +112,6 @@ class BST{
             return;
         }
         else{
-
             while(save.info!=x && save!=null ){
                 pred=save;
                 if (save.lptr!=null || save.rptr!=null) {
@@ -175,7 +183,7 @@ class BST{
                             }
                             add.lptr=save.lptr;
                             pred.rptr=save.rptr;
-                            save.lptr=null;
+                            save.lptr=null; 
                             save.rptr=null;
                         }
                         else{

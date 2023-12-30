@@ -132,7 +132,7 @@ class ll{
 		node m=fr;
         if(fr==null){
             System.out.println("List is empty!!!!!!!");
-            return;
+        return;
         }
         if (fr==re) {
             System.out.println(fr.info+"-__->null");
